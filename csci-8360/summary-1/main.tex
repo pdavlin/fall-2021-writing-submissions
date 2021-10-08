@@ -1,0 +1,84 @@
+% BEGIN TEMPLATE
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{hyperref} 
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{listings}
+\usepackage{float}
+\usepackage[title]{appendix}
+\usepackage[ruled]{algorithm2e}
+\graphicspath{ {../../images/} }
+\bibliographystyle{acm}
+% CHANGE THESE
+\newcommand{\courseListing}{CSCI 8360}
+\newcommand{\courseName}{Machine Learning for Text}
+\newcommand{\assignmentTitle}{Summary \#1}
+\newcommand{\assignmentSubtitle}{What's Special About Machine Learning?}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\urlstyle{same}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+  \input{../../templates/titlepage.tex}
+  \graphicspath{{./images/}}
+  Analyzing text is an essential programmatic component of many online applications.
+  Search engines, spam filters, recommendation algorithms, and social media site all rely on some amount of text mining in order to improve user outcomes for their products.
+  This is hardly a surprising statement, because humans have primarily communicated via written word in some form or another since its invention by Sumerians.
+  Underlying this obvious understanding is a more complicated discussion of how text is a difficult and nuanced domain for effective analysis.
+  
+  To illustrate this, it is easy to consider a counterexample covered in several other courses in the AI concentration coursework--image processing.
+  Fundamentally, all images are objective--they have a defined size and are composed of individual pixels that display color in a set spectrum.
+  The complexity of an image can be expressed in its file size--"how large, how detailed, how colorful is this image?"--and there are commonly-deployed strategies used to reduce the complexity of images for analysis by object recognition algorithms and neural networks.
+  Recognition is, by extension, an analysis of this static set of information to determine whether groups of pixels constitute some specific shape or object in the image.
+  
+  Text, by comparison, occupies less "space"--its characters are encoded more simply--but contains complexity due to the combinations of characters that compose a document set (\textit{corpus}) and its complete set of words (\textit{lexicon}).
+  Because sets of text can be small, mining has to occur across a large or massive corpora--many documents that might have different purposes, writers, and styles.
+  This also requires accounting for the variety of lengths that documents in a corpus may have, to avoid emphasizing individual words too much.
+  
+  Depending on how the text is analyzed--as a pure "bag of words" or as groups of phrases in context with a language model--applications can introduce substantial dimensionality into their algorithms, possibly in the range of $10^5$ or $10^6$ dimensions, according to the textbook.
+  The meaning of an individual word can differ depending on context, and the most important words might only appear once or twice in a corpus, which makes text a very \textit{sparse} medium.
+  Broken down into dimensions, many words have "zero value"--they do not contribute to the overall meaning of the text--but some dimensions carry positive value.  
+  
+  Language models "create a probabilistic representation of the text" by trying to capture the likelihood that some word might be used in a particular sequence.
+  Other approaches create topic modeling or clustering based on the "value" of a word.
+  Since most dimensions in a model carry a zero value, the positive value words are highly valuable sources of information for models.
+ 
+  Not emphasized too much in the textbook but still inherent to the medium of text is the prevalence of individual writers' usage--or mis-usage--of language, including misuse of words, misspellings, slang terms, or strange linguistic tricks like portmanteaus or hyperbole.
+  Different people, in varying regions, from diverse backgrounds, with a range of backbrounds, and across all generations, can use the same language (or even the same lexicon) in a tremendously varied manner.
+  Also, for technical documents, extraneous information also needs to be considered for removal, like tag elements in HTML, or categorization, such as the name of a user sending a message in a forum.
+  
+  Text analysis is difficult because the usage of text in any language is unique.
+  Some applications, like the famous Google search engine and many recommendation algorithms, have very advanced text mining and analysis approaches.
+  One interesting opportunity that a student in this class could hope for is to better understand the methods that some successful everyday tech products use to work so well.
+  In a more academic (and wishful) sense, having a better understanding of the analysis of language might also provide better insight into language itself--and provide a student with a better opportunity to understand the world they live in.
+\end{document}

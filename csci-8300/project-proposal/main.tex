@@ -9,8 +9,10 @@
 \usepackage[ruled]{algorithm2e}
 \usepackage{currfile}
 \usepackage{tocloft}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
 \graphicspath{ {../../images/} }
-\bibliographystyle{acm}
+\bibliographystyle{apalike} 
 % FILE VARIABLES
 \newcommand{\assignmentTitle}{Project Proposal}
 \newcommand{\nocontentsline}[3]{}
@@ -72,9 +74,29 @@
   \pagenumbering{arabic}
   \section{Introduction}
   \tocless\subsection{Problem}
+  
+  This project will cover the application of object detection methodologies to detect faces in images and extend that application to blur detected faces from photos, to better protect users from tracking on the web.
+  
   \tocless\subsection{Motivations}
+  In 2021, users on the web are generating, sending, and storing an ever-increasing amount of data in the form of image and video files.
+  Each day, thousands of distinct services are processing user-generated images and videos, mining information about them for use in business or government decision making.
+  This scanning and mining can be done for legal or criminal purposes, as in Apple's proposed on-device child sexual abuse material scanning \cite{ElectronicFrontierFoundation2021CoalitionCook}, or for user tracking purposes.
+  
+  While the legality of the former approach is a subject of frequent debate--how much privacy do individual users need to give up to ensure that criminals cannot use electronic devices to store illegal information?--the latter is a well-documented and much-discussed privacy concern.
+  The proliferation of tracking users across the web in order to build web functions, serve ads, and track behavior is a growing concern among privacy and digital rights advocates.
+  One form of tracking often used by companies for tracking is facial recognition and recording in posted photo or video items.
+  This is difficult for users to combat.
+ 
   \tocless\subsection{Significance}
+  The average user does not have the capability, technical knowledge, time, or (in some cases) the money to acquire adequate software to obscure images.
+  Being able to apply this kind of filter on an ad-hoc, portable basis would be a big step in allowing users to enhance their own privacy on the web with a few taps on their smartphone.
+  The use of AI can significantly increase the speed and efficacy of this kind of work.
+  Training a model and then making it portable to a mobile or web application offers a level of ease that will make privacy more accessible to normal users.
+  
   \tocless\subsection{Challenges}
+  
+  
+  
   \tocless\subsection{Objectives}
   \newpage
   \section{Overview}
@@ -91,6 +113,9 @@
   \tocless\subsection{Techniques I am going to use to solve the problem}
   \tocless\subsection{Processes I am going to engage in this research}
   \tocless\subsection{Facilities and supplies needed for this research}
+  Work will be completed using existing hardware at home.
+  Fortunately, a computer with late-model graphics processing power is available for use, which will enable running more complex programs using neural networks.
+  This should cover most, if not all, possible work in the scope of this project.
   \newpage
   \section{Work Plan}
   \tocless\subsection{Tasks to be performed in this research}
@@ -98,11 +123,16 @@
   \newpage
   \section{Mitigations}
   \tocless\subsection{Anticipated problems and issues}
+  One common issue when using late-model GPUs for programming tasks tends to be the extent of driver issues.
+  Incompatibilities between software suites like Tensorflow and the GPU hardware are taxing to address and frequently difficult to solve.
+  In such a case, the solution would be to seek an online service like Google Colab, which offers GPU-powered Jupyter notebook instances for use.
   \tocless\subsection{Limitations and constraints of the research}
   \newpage
   \section{Summary}
   \newpage
   \section{References}
+  \bibliography{references}
   \newpage
-  \appendix{Appendices}
+  \appendix
+  \section{Figure Listing}
 \end{document}
