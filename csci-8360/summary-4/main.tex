@@ -73,7 +73,7 @@ The results can be found in the \nameref{outputs} Appendix.
 Speaking generally, classifying items into fewer groups was more effective.
 This makes a lot of sense intuitively; the data set has a lot of overlap across technical and political categories, which was also reflected in the results from the K-Means experiment.
 Therefore, making predictions with a smaller number of labels tended to be more accurate.
-From $k=1$ to $k=9$, the accuracy score decreases linearly, and above $k=10$, the results stabilize.
+From $k=1$ to $k=9$, the accuracy score decreases linearly, and for $k > 10$, the results tend to stabilize for the smaller test sizes (e.g., the test runs where there was a higher ratio of training data to test data). In the largest test size, when $k > 10$, the results appear to become functionally random.
 This is reflected with the declining values on the graph in the \nameref{outputs} Appendix.
 That said, the results of the models were not particularly good--accuracy barely exceeded a score of 0.5 in exactly one case.
 As expected, having fewer of the newsgroup items in the test groups led to more accurate results.
@@ -86,7 +86,7 @@ Still, it was reassuring to know that the model could be improved with some smal
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=3in]{images/svd_5.png}
+\includegraphics[width=6in]{images/knn.png}
 \caption{Output from running}
 \label{fig:out}
 \end{figure}
@@ -94,7 +94,7 @@ Still, it was reassuring to know that the model could be improved with some smal
 
 \newpage
 \section{Complete Code Listing} \label{codelist}
-% \lstinputlisting[language=Python]{k-means.py}
+\lstinputlisting[language=Python]{knn.py}
 
 \end{appendices}
   
