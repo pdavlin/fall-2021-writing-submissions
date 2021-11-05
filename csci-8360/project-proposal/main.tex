@@ -1,0 +1,93 @@
+% BEGIN TEMPLATE
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{hyperref} 
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{listings}
+\usepackage{float}
+\usepackage[title]{appendix}
+\usepackage[ruled]{algorithm2e}
+\graphicspath{ {../../images/} }
+\bibliographystyle{acm}
+% CHANGE THESE
+\newcommand{\courseListing}{CSCI 8360}
+\newcommand{\courseName}{Machine Learning for Text}
+\newcommand{\assignmentTitle}{Project Proposal}
+\newcommand{\assignmentSubtitle}{Machine Learning Text Generation}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\urlstyle{same}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+  \input{../../templates/titlepage.tex}
+  \graphicspath{{./images/}}
+
+One lesson taken from previous classes in the AI program at the University is the value of a good dataset.
+Prior course projects have, at times, suffered dramatically from a lack of good, organized data.
+This has led to diminished output or productivity on the target projects while time was spent collecting, categorizing, and organizing enough input data for model training or analysis.
+With this in mind, the approach to project selection for this course project was to try and identify a dataset first, and then seek to \textit{do} something interesting with that dataset that might also be constructive for the course content.
+
+To this end, the project idea for the course is to investigate and implement a \textbf{Text-generating Neural Network, base on chat logs from a Slack chat dating back to 2016}.
+Having access to five years' worth of chat data--comprising tens of thousands of messages sent by fourteen authors--provides a very rich and unique dataset for this application.
+The idea has been explored by a handful of papers linked in the bibliography of this proposal, and would be adapted for this application. \cite{KarpathyTheNetworks} \cite{Sha2018Order-PlanningData} \cite{Xie2017NeuralGuide} \cite{Zhang2017AdversarialGeneration} 
+The general idea is to use a neural network to analyze the chat messages, sorted by author, tokenize the words contained, and then attempt to "simulate" or generate messages from different users based in part on the collection of words they have previously used.
+When executed, this project should be able to provide a fake "transcript" of simulated group conversations based on the input dataset.
+In theory, this could also be extended to be a functional Slack "bot" user--which can also send messages to the group masquerading as a chosen user.
+
+The input dataset has been retrieved, with permission, from the Slack group channel.
+In advance, a consensus permission has been reached with the group to ensure that any sensitive messages will be protected in this project, using the following guidelines:
+\begin{enumerate}
+    \item Real names and usernames from Slack will not be shared, in aggregate, online. A genuine number of users “User 1,” “User 2,” etc. would be reported, but never any personally identifying info for any individual.
+    \item Similarly the dataset will be processed to anonymize the data with those placeholder usernames (in place of real/user names) accordingly, and those placeholders will be used in the report.
+    \item To a reasonable extent, any messages with profanity from the data set will be processed and filtered such that any “generated” messages for a report would not reflect negatively on the group or the submitter of the report.
+\end{enumerate}
+
+An extensive literary analysis is possibly out of scope for the length of this report, but it is worth noting that a few resources have approached similar problem sets using data from Shakespeare plays and other literary sources.
+Generally speaking, a neural network can be constructed with the Tensorflow framework and written in Python.
+The work might be done locally (with access to a computer with adequate GPU resources) or online, using the Google Colab service.
+If extended to a working application, the resulting model could be exported and run in JavaScript as an application, which could be then called from Slack for input.
+A proposed timeline might be represented as follows, assuming there are six weeks of work time in preparation for this report:
+\begin{itemize}
+    \item \textbf{Week 1}: Process, filter, anonymize Slack JSON data. Scrub details whenever possible. Validate that data is appropriately anonymized.
+    \item \textbf{Week 2-3}: Build model, test, attempt to generate transcripts. Extend to Week 4 if needed.
+    \item \textbf{Week 4-5}: Refine model and work on building into a standalone application. Prepare instructions for running the output code and document any instructions needed.
+    \item \textbf{Week 6}: Prepare and finalize project report.
+\end{itemize}
+
+This is a fairly ambitious timeline.
+Fortunately, having some experience with Tensorflow and neural networks, the total workload should be reduced in comparison to starting from scratch with no knowledge of neural networks or generative models.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}
